@@ -9,11 +9,18 @@ bot = telebot.TeleBot(config.token)
 def start_message(message):
     bot.send_message(message.chat.id, "И тебе привет, {}".format(random.choice(config.words["appeals"])))
 
-@bot.message_handler(content_types = ["text"])
+@bot.message_handler(content_types=["text"])
 def text(message):
     text = message.text.lower()
+    print("user's message:" + text)
+    for i in config.words["unnecessary"]:
+        text = text.replace(i, "")
+    text = text.replace(" ", "")
+    print("user's message after processing:" + text)
     if text in config.words["hello"]:
         bot.send_message(message.chat.id, random.choice(config.words["hello"]))
+    elif text in config.words["goodbye"]:
+        bot.send_message(message.chat.id, random.choice(config.words["goodbye"]))
     else:
         bot.send_message(message.chat.id, random.choice(config.words["phrases"]))
 

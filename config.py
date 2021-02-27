@@ -1,4 +1,4 @@
-token = "1444464112:AAFRgZY1EM4iiWDgXRY1XJThwTc2RNXyhq8"
+token = "token"
 
 words = {
     "appeals": ["жалкий человечешка", "мешок с костями", "кожанный идиот", "набор органов", "сборище клеток"],

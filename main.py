@@ -21,6 +21,10 @@ def text(message):
         bot.send_message(message.chat.id, random.choice(config.words["hello"]))
     elif text in config.words["goodbye"]:
         bot.send_message(message.chat.id, random.choice(config.words["goodbye"]))
+    elif text in config.words["sendfoto"]:
+        foto = open(f"img/su/su{random.randint(1, 8)}.png", "rb")
+        bot.send_sticker(message.chat.id, foto)
+        bot.send_message(message.chat.id, "вот тебе мое фото")
     else:
         bot.send_message(message.chat.id, random.choice(config.words["phrases"]))
 

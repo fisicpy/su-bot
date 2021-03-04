@@ -31,9 +31,9 @@ def text(message):
     text = text.replace(" ", "")
     print("user's message after processing:" + text)
     if text in config.words["hello"]:
-        bot.send_message(message.chat.id, random.choice(config.words["hello"]))
+        bot.send_message(message.chat.id, random.choice(config.words["hello"]) + ", " + random.choice(config.words["appeals"]))
     elif text in config.words["goodbye"]:
-        bot.send_message(message.chat.id, random.choice(config.words["goodbye"]))
+        bot.send_message(message.chat.id, random.choice(config.words["goodbye"]) + ", " + random.choice(config.words["appeals"]))
     elif text in config.words["sendfoto"]:
         foto = open(f"img/su/su{random.randint(1, 8)}.png", "rb")
         bot.send_sticker(message.chat.id, foto)
@@ -44,9 +44,10 @@ def text(message):
         bot.send_message(message.chat.id, "вот тебе мем")
     elif text in config.words["thanks"]:
         bot.send_message(message.chat.id, random.choice(config.words["welcome"]))
+    elif text in config.words["wyname"]:
+        bot.send_message(message.chat.id, random.choice(config.words["name"]))
     else:
         bot.send_message(message.chat.id, random.choice(config.words["phrases"]))
 
 
 bot.polling()
-
